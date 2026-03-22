@@ -1,58 +1,87 @@
-# Cyber Energy Threat Intelligence Agent
+# 🛡️ Cyber Energy Threat Intelligence Agent
 
-An autonomous Hive agent that collects cyber threat events from vulnerability, exploited-vulnerability, and energy-sector news feeds, scores their relevance to energy infrastructure, detects recurring campaign patterns, and generates a threat dossier.
+## 📌 Overview
+An autonomous AI-powered agent that monitors, analyzes, and generates intelligence reports on cyber threats impacting energy infrastructure.
 
-## Data Sources
+This system ingests real-world threat intelligence feeds (CVE, CISA KEV, and energy-sector news), applies AI-driven analysis, and produces structured **threat dossiers** for security teams and researchers.
 
-- CVE vulnerability feeds
-- CISA Known Exploited Vulnerabilities
-- Energy sector cybersecurity news
+---
 
-## Configuration
+## ⚡ Features
 
-The agent optionally supports LLM-based classification using OpenRouter.
+- 🔍 **Multi-source ingestion**
+  - CVE feeds
+  - CISA Known Exploited Vulnerabilities (KEV)
+  - Energy sector cybersecurity news
 
-Set your API key:
+- 🤖 **AI-powered classification**
+  - Identifies threats relevant to energy infrastructure
 
-export OPENROUTER_API_KEY=your_api_key_here
+- 📊 **Impact & severity scoring**
+  - Rates threats on a 1–5 scale
 
-If no API key is provided, the agent automatically falls back to keyword-based classification.
+- 🏭 **ICS/SCADA relevance detection**
+  - Identifies risks to industrial control systems
 
-## Capabilities
+- 💣 **Exploit intelligence**
+  - Checks for known exploitation
 
-- Threat classification (energy-relevant detection)
-- Cyber impact analysis with severity scoring
-- ICS / SCADA relevance detection
-- Exploit intelligence checks
-- Risk scoring
-- Campaign detection using threat memory
-- MITRE ATT&CK mapping
-- Human-readable threat dossier generation
+- 🧠 **Threat memory & campaign detection**
+  - Detects recurring patterns and campaigns
 
-## Example Use Cases
+- ⚡ **Sector-specific impact analysis**
+  - Differentiates IT vs energy infrastructure impact
 
-- SOC monitoring for energy utilities
-- Critical infrastructure threat intelligence
-- Automated vulnerability risk analysis
+- 🧭 **MITRE ATT&CK mapping**
+  - Maps threats to known adversary techniques
 
-## Features
+- 📄 **Automated threat dossiers**
+  - Generates structured intelligence reports
 
-- CVE and exploited vulnerability collection
-- Energy-sector relevance classification
-- ICS relevance detection
-- Exploit intelligence checks
-- Risk scoring
-- MITRE ATT&CK mapping
-- Threat memory and campaign detection
-- Human-readable dossier generation
+---
 
-## Run
+## 🧱 Architecture
 
-//bash
-export OPENAI_API_KEY="your_api_key_here"
-PYTHONPATH=examples uv run python -m cyber_energy_agent
+```
+Feeds → Classification → Impact Analysis → Risk Engine → Memory → Dossier
+```
+
+---
+
+## 🚀 Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/cyber-energy-threat-agent.git
+cd cyber-energy-threat-agent
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure environment variables
+
+Create a `.env` file:
+
+```env
+OPENROUTER_API_KEY=your_api_key_here
+```
+
+### 4. Run the agent
+
+```bash
+python agent.py
+```
+
+---
 
 ## Example Output
+
+```
 
 CYBER ENERGY THREAT DOSSIER
 ===========================
@@ -87,3 +116,58 @@ MITRE ATT&CK Techniques:
 - T0866 – Exploitation of Remote Services
 
 -------------------------------
+
+```
+
+## 🧠 Tech Stack
+
+- Python 3.11+
+- OpenAI / OpenRouter API
+- Threat Intelligence Feeds (CVE, CISA KEV)
+- MITRE ATT&CK Framework
+
+---
+
+## 🎯 Use Cases
+
+- Security Operations Centers (SOC)
+- Critical Infrastructure Monitoring
+- Threat Intelligence Automation
+- Cyber Risk Analysis
+- Energy sector cybersecurity research
+
+---
+
+## 🔮 Future Improvements
+
+- Real-time alerting (Slack, Email)
+- Web dashboard UI
+- Attack chain visualization
+- SIEM integration
+- Threat scoring optimization
+- Historical analytics
+
+---
+
+## ⚠️ Disclaimer
+
+This project is for educational and research purposes only. It does not guarantee complete threat detection or prevention.
+
+---
+
+## 👤 Author
+
+Meenu Hani
+
+---
+
+## ⭐ Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+## 📄 License & Copyright
+
+© 2026 Meenu Hani. All rights reserved.
+No part of this project may be used, copied, modified, or distributed without explicit permission from the author.
