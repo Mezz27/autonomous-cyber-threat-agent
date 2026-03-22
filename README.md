@@ -1,91 +1,69 @@
-# 🛡️ Cyber Energy Threat Intelligence Agent
+# Cyber Energy Threat Intelligence Agent
 
-## 📌 Overview
-An autonomous AI-powered agent that monitors, analyzes, and generates intelligence reports on cyber threats impacting energy infrastructure.
+An autonomous Hive agent that collects cyber threat events from vulnerability, exploited-vulnerability, and energy-sector news feeds, scores their relevance to energy infrastructure, detects recurring campaign patterns, and generates a threat dossier.
 
-This system ingests real-world threat intelligence feeds (CVE, CISA KEV, and energy-sector news), applies AI-driven analysis, and produces structured **threat dossiers** for security teams and researchers.
+## Data Sources
 
----
+- CVE vulnerability feeds
+- CISA Known Exploited Vulnerabilities
+- Energy sector cybersecurity news
 
-## ⚡ Features
+## Configuration
 
-- 🔍 **Multi-source ingestion**
-  - CVE feeds
-  - CISA Known Exploited Vulnerabilities (KEV)
-  - Energy sector cybersecurity news
+The agent optionally supports LLM-based classification using OpenRouter.
 
-- 🤖 **AI-powered classification**
-  - Identifies threats relevant to energy infrastructure
+Set your API key:
 
-- 📊 **Impact & severity scoring**
-  - Rates threats on a 1–5 scale
+export OPENROUTER_API_KEY=your_api_key_here
 
-- 🏭 **ICS/SCADA relevance detection**
-  - Identifies risks to industrial control systems
+If no API key is provided, the agent automatically falls back to keyword-based classification.
 
-- 💣 **Exploit intelligence**
-  - Checks for known exploitation
+## Capabilities
 
-- 🧠 **Threat memory & campaign detection**
-  - Detects recurring patterns and campaigns
+- Threat classification (energy-relevant detection)
+- Cyber impact analysis with severity scoring
+- ICS / SCADA relevance detection
+- Exploit intelligence checks
+- Risk scoring
+- Campaign detection using threat memory
+- MITRE ATT&CK mapping
+- Human-readable threat dossier generation
 
-- ⚡ **Sector-specific impact analysis**
-  - Differentiates IT vs energy infrastructure impact
+## Example Use Cases
 
-- 🧭 **MITRE ATT&CK mapping**
-  - Maps threats to known adversary techniques
+- SOC monitoring for energy utilities
+- Critical infrastructure threat intelligence
+- Automated vulnerability risk analysis
 
-- 📄 **Automated threat dossiers**
-  - Generates structured intelligence reports
+## Features
 
----
+- CVE and exploited vulnerability collection
+- Energy-sector relevance classification
+- ICS relevance detection
+- Exploit intelligence checks
+- Risk scoring
+- MITRE ATT&CK mapping
+- Threat memory and campaign detection
+- Human-readable dossier generation
 
-## 🧱 Architecture
+## Run
 
-```
-Feeds → Classification → Impact Analysis → Risk Engine → Memory → Dossier
-```
+//bash
+export OPENAI_API_KEY="your_api_key_here"
+PYTHONPATH=examples uv run python -m cyber_energy_agent
 
----
+## Example Output
 
-## 🚀 Installation & Setup
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/cyber-energy-threat-agent.git
-cd cyber-energy-threat-agent
-```
-
-### 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Configure environment variables
-
-Create a `.env` file:
-
-```env
-OPENROUTER_API_KEY=your_api_key_here
-```
-
-### 4. Run the agent
-
-```bash
-python agent.py
-```
-
----
-
-## 📊 Example Output
-
-```
 CYBER ENERGY THREAT DOSSIER
 ===========================
 
 CVE: CVE-2025-61726
+
+Title:
+CVE-2025-61726 - golang: net/url: Memory exhaustion in query parameter parsing in net/url
+
+Source:
+CVE Feed
 
 Severity Score:
 3/5
@@ -100,65 +78,12 @@ ICS Relevance:
 False
 
 Threat Assessment:
-This vulnerability allows for denial-of-service attacks...
+This vulnerability allows for denial-of-service attacks against Go applications processing HTTP requests, potentially impacting energy infrastructure components utilizing such applications for data acquisition, control, or communication.
 
 Potential Energy Sector Impact:
-Limited direct impact expected on energy infrastructure.
+Limited direct impact expected on energy infrastructure. Threat primarily affects general IT systems.
 
 MITRE ATT&CK Techniques:
 - T0866 – Exploitation of Remote Services
-```
 
----
-
-## 🧠 Tech Stack
-
-- Python 3.11+
-- OpenAI / OpenRouter API
-- Threat Intelligence Feeds (CVE, CISA KEV)
-- MITRE ATT&CK Framework
-
----
-
-## 🎯 Use Cases
-
-- Security Operations Centers (SOC)
-- Critical Infrastructure Monitoring
-- Threat Intelligence Automation
-- Cyber Risk Analysis
-- Energy sector cybersecurity research
-
----
-
-## 🔮 Future Improvements
-
-- Real-time alerting (Slack, Email)
-- Web dashboard UI
-- Attack chain visualization
-- SIEM integration
-- Threat scoring optimization
-- Historical analytics
-
----
-
-## ⚠️ Disclaimer
-
-This project is for educational and research purposes only. It does not guarantee complete threat detection or prevention.
-
----
-
-## 👤 Author
-
-Meenu Hani
-
----
-
-## ⭐ Contributing
-
-Contributions, issues, and feature requests are welcome!
-
----
-
-## 📄 License & Copyright
-
-© 2026 Meenu Hani. All rights reserved.
+-------------------------------
